@@ -1,4 +1,5 @@
 import icons from 'url:../../img/icons.svg';
+import fracty from "fracty"
 
 class RecipeView {
     #parentElement = document.querySelector('.recipe');
@@ -87,7 +88,7 @@ class RecipeView {
                     <svg class="recipe__icon">
                         <use href="${icons}#icon-check"></use>
                     </svg>
-                    <div class="recipe__quantity">${ing.quantity}</div>
+                    <div class="recipe__quantity">${ing.quantity ? fracty(ing.quantity).toString() : ''}</div>
                     <div class="recipe__description">
                         <span class="recipe__unit">${ing.unit}</span>
                         ${ing.description}
@@ -95,16 +96,6 @@ class RecipeView {
                     </li>
                 `}).join('')}
             
-                <li class="recipe__ingredient">
-                <svg class="recipe__icon">
-                    <use href="${icons}#icon-check"></use>
-                </svg>
-                <div class="recipe__quantity">0.5</div>
-                <div class="recipe__description">
-                    <span class="recipe__unit">cup</span>
-                    ricotta cheese
-                </div>
-                </li>
             </ul>
             </div>
 
