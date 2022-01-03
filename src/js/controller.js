@@ -31,16 +31,19 @@ const renderSpinner = function (parentEl) {
 
 const showRecipe = async function () {
   try {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    
     // 1. Loading Recipe
     renderSpinner(recipeContainer);
     
-    const res = await fetch("https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcfb2")
-    const data = await res.json()
-    
-    if (!res.ok) throw new Error(`${data.message} (${res.status})`)
+    const res = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`);
+    const data = await res.json();
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
     
     console.log(res, data);
-    let {recipe} = data.data;
+    
+    let { recipe } = data.data;
     recipe = {
       id: recipe.id,
       title: recipe.title,
@@ -53,6 +56,7 @@ const showRecipe = async function () {
     }
     
     console.log(recipe);
+    
   
     // 2. Rendering recipe 
     const markup = `
@@ -108,7 +112,7 @@ const showRecipe = async function () {
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredient-list">
             ${recipe.ingredients.map(ing => {
-              return `
+      return `
                 <li class="recipe__ingredient">
                   <svg class="recipe__icon">
                     <use href="${icons}#icon-check"></use>
@@ -119,9 +123,9 @@ const showRecipe = async function () {
                     ${ing.description}
                   </div>
                 </li>
-              `  
-              }).join('')
-            }
+              `
+    }).join('')
+      }
            
 
             <li class="recipe__ingredient">
@@ -158,10 +162,10 @@ const showRecipe = async function () {
     `
     recipeContainer.innerHTML = '';
     recipeContainer.insertAdjacentHTML('afterbegin', markup)
-  } catch(error) {
+  } catch (error) {
     alert(error)
   }
-}
+};
 
-showRecipe()
+['hashchange', 'load'].forEach(ev => window.addEventListener(ev, showRecipe))
 
