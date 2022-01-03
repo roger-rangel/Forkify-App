@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/roger-rangel/Forkify-App#readme",
   "dependencies": {
-    "parcel": "^2.0.1"
+    "core-js": "^3.20.2",
+    "parcel": "^2.0.1",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.1"
