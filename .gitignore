@@ -59,6 +59,9 @@ yarn-error.log*
 # Dependency directories
 node_modules/
 jspm_packages/
+.parcel-cache/data.mdb
+.parcel-cache/
+.cache
 
 # Optional npm cache directory
 .npm
