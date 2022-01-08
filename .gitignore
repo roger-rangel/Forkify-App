@@ -61,7 +61,7 @@ node_modules/
 jspm_packages/
 .parcel-cache/data.mdb
 .parcel-cache/
-.cache
+.cache/
 
 # Optional npm cache directory
 .npm
