@@ -1,5 +1,6 @@
 import * as model from './model.js';
 import recipeView from './views/recipeView.js'
+<<<<<<< HEAD
 <<<<<<< 57c189923707dbdcaf322b3389b20ba28c5de4c0
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -26,11 +27,21 @@ if (module.hot) {
 //   module.hot.accept();
 // }
 >>>>>>> Implement Pagination - Part 1
+=======
+import searchView from './views/searchView.js'
+import resultsView from './views/resultsView.js'
+
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
+// if (module.hot) {
+//   module.hot.accept();
+// }
+>>>>>>> main
 
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
-    console.log(id);
     
     if (!id) return;
     recipeView.renderSpinner();
@@ -46,8 +57,11 @@ const controlRecipes = async function () {
   }
 };
 
+<<<<<<< HEAD
 <<<<<<< 57c189923707dbdcaf322b3389b20ba28c5de4c0
 =======
+=======
+>>>>>>> main
 const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
@@ -66,9 +80,13 @@ const controlSearchResults = async function () {
   }
 };
 
+<<<<<<< HEAD
 >>>>>>> Reimplement Search Results
+=======
+>>>>>>> main
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
+  searchView.addHandlerSearch(controlSearchResults);
 }
 
 init();
