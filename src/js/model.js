@@ -4,49 +4,37 @@ import { getJSON } from './helpers.js';
 
 export const state = {
     recipe: {},
-<<<<<<< HEAD
-<<<<<<< 57c189923707dbdcaf322b3389b20ba28c5de4c0
-=======
-=======
->>>>>>> main
     search: {
-        query: '',
-        results: [],
-        page: 1,
-        resultsPerPage: RES_PER_PAGE,
-    }
-<<<<<<< HEAD
->>>>>>> Implement Pagination - Part 1
-=======
->>>>>>> main
+    query: '',
+    results: [],
+    page: 1,
+    resultsPerPage: RES_PER_PAGE,
+  },
 };
 
 export const loadRecipe = async function (id) {
     try {
         const data = await getJSON(`${API_URL}/${id}`)
         
+        console.log(data);
+        
         const { recipe } = data.data;
         state.recipe = {
-            id: recipe.id,
-            title: recipe.title,
-            publisher: recipe.publisher,
-            sourceURL: recipe.source_url,
-            image: recipe.image_url,
-            servings: recipe.servings,
-            cookingTime: recipe.cooking_time,
-            ingredients: recipe.ingredients
+        id: recipe.id,
+        title: recipe.title,
+        publisher: recipe.publisher,
+        sourceURL: recipe.source_url,
+        image: recipe.image_url,
+        servings: recipe.servings,
+        cookingTime: recipe.cooking_time,
+        ingredients: recipe.ingredients
         }
         
+        console.log(state.recipe);
     } catch (error) {
         console.error(`${error} 👻`)
         throw error;
     }
-<<<<<<< HEAD
-<<<<<<< 57c189923707dbdcaf322b3389b20ba28c5de4c0
-}
-=======
-=======
->>>>>>> main
 };
 
 export const loadSearchResults = async function (query) {
@@ -70,21 +58,12 @@ export const loadSearchResults = async function (query) {
     }
 }
 
-<<<<<<< HEAD
-<<<<<<< 57c189923707dbdcaf322b3389b20ba28c5de4c0
->>>>>>> Reimplement Search Results
-=======
-=======
->>>>>>> main
 export const getSearchResultsPage = function (page = state.search.page) {
-    state.search.page = page;
-    
-    const start = (page - 1) * state.search.resultsPerPage; // 0;
-    const end = page * state.search.resultsPerPage; // 9;
-    return state.search.results.slice(start, end)
-} 
+  state.search.page = page;
 
-<<<<<<< HEAD
->>>>>>> Implement Pagination - Part 1
-=======
->>>>>>> main
+  const start = (page - 1) * state.search.resultsPerPage; // 0
+  const end = page * state.search.resultsPerPage; // 9
+
+  return state.search.results.slice(start, end);
+};
+
