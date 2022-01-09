@@ -16,10 +16,16 @@ import resultsView from './views/resultsView.js'
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
+<<<<<<< 57c189923707dbdcaf322b3389b20ba28c5de4c0
 if (module.hot) {
   module.hot.accept();
 }
 >>>>>>> Reimplement Search Results
+=======
+// if (module.hot) {
+//   module.hot.accept();
+// }
+>>>>>>> Implement Pagination - Part 1
 
 const controlRecipes = async function () {
   try {
@@ -54,8 +60,7 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query);
     
     // 3) Render results
-    console.log(model.state.search.results);
-    resultsView.render(model.state.search.results)
+    resultsView.render(model.getSearchResultsPage());
   } catch (error) {
     console.log(error);
   }
