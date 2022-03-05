@@ -1,5 +1,5 @@
 # [Forkify](https://recipeapp-forkify.netlify.app/)
-> from [Jonas Schmedtmann's](https://github.com/jonasschmedtmann) Course
+> from the Advanced Javascript course of [Jonas Schmedtmann](https://github.com/jonasschmedtmann) 
 # ![showcase](src/img/pasta.png)
 
 ## Introduction
@@ -39,6 +39,6 @@ The app is using the Forkify recipe API in order to fetch recipe information.
 
 ![Image 1](https://github.com/roger-rangel/Forkify-App/blob/main/src/img/tacos.png)  
 
-## I hope you enjoyt this small app!
+## Enjoy!
 
 Thank you so much for checking out this project! If you have any notes or bugs send them my way and I'll make sure they're fixed.
